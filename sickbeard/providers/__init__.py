@@ -25,6 +25,7 @@ __all__ = ['ezrss',
            'newzbin',
            'fanzub',
            'btn',
+           'nyaa',
            ]
 
 import sickbeard

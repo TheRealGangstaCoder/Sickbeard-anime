@@ -188,7 +188,6 @@ def _retrieve_exceptions_fetcher(url):
     return exception_dict
 
 def _retrieve_anidb_mainnames():
-
     anidb_mainNames = {}
     for show in sickbeard.showList:
         if show.is_anime:
@@ -198,7 +197,10 @@ def _retrieve_anidb_mainnames():
                 continue
             else:
                 if anime.name and anime.name != show.name:
-                    anidb_mainNames[show.tvdbid] = [{anime.name:-1}]
+                    if anime.name == "Hunter X Hunter":
+                        anidb_mainNames[show.tvdbid] = [{anime.name:-1}, {"HunterXHunter (2011)":-1}]
+                    else:
+                        anidb_mainNames[show.tvdbid] = [{anime.name:-1}]
 
     logger.log("anidb anime names: " + str(anidb_mainNames), logger.DEBUG)
     return anidb_mainNames

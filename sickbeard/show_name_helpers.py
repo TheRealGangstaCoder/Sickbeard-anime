@@ -298,14 +298,18 @@ def allPossibleShowNames(show, season=-1):
     if not showNames: # if we dont have any season specific exceptions fallback to generic exceptions
         season = -1
         showNames = get_scene_exceptions(show.tvdbid, season=season)
-
     if season in [-1, 1]:
-        showNames.append(show.name)
+        showNames.append(show.name)    
     # if we have a tvrage name then use it
     if show.tvrname != "" and show.tvrname != None and season in [-1, 1]:
         showNames.append(show.tvrname)
-
     newShowNames = []
+    
+    for curName in set(showNames):
+        newShowNames.append(curName)
+        newShowNames.append(curName.replace(' ', ''))
+    
+    showNames = newShowNames
 
     country_list = countryList
     country_list.update(dict(zip(countryList.values(), countryList.keys())))

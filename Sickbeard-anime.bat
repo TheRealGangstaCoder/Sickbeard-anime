@@ -1,0 +1,1 @@
+pythonw.exe SickBeard.py

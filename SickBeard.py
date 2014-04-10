@@ -124,7 +124,8 @@ def main():
 
     try:
         locale.setlocale(locale.LC_ALL, "")
-        sickbeard.SYS_ENCODING = locale.getpreferredencoding()
+        #sickbeard.SYS_ENCODING = locale.getpreferredencoding()
+        sickbeard.SYS_ENCODING = 'UTF-8'
     except (locale.Error, IOError):
         pass
 
