@@ -190,6 +190,18 @@ anime_ep_regexes = [
                 .*?
                 """
                 ),
+                    
+               ('anime_naruto',
+                '''^(?P<series_name>.+?)[ ._-]+
+                (?P<ep_ab_num>\d{1,3})
+                (-(?P<extra_ab_ep_num>\d{1,3}))?
+                (v(?P<version>[0-9]))?
+                ([ ._-]*(VOSTFR)[ ._-]*)?
+                (par[ ._-]*)((?P<release_group>.+?)[ ._]+)?
+                [ ._-]*(?P<extra_info>\([ ._]*\d{3,4}[xp\*]?\d{0,4}[ ._]*\) - [a-zA-Z ]{10})?
+                .*?
+                '''),
+                    
                ('anime_standard',
                # [Group Name] Show Name.13-14
                # [Group Name] Show Name - 13-14
